@@ -7,3 +7,15 @@ theme: 'light'|'dark',
 export interface Childern{
     children:ReactNode;
 }
+
+export interface AuthProviderProps {
+  children: ReactNode;
+}
+export interface AuthContextType {
+  isAuthenticated: boolean;
+  login: () => void;
+  logout: () => void;
+}
+export type ProtectedRouteProps = {
+  children: React.ReactNode;
+};
