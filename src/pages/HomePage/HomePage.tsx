@@ -14,12 +14,14 @@ function HomePage() {
 
   return (
     <div className="background">
+      <div className="hero-content">
       <h1>Project Manager App!</h1>
       <h3>Manage your projects and tasks efficiently</h3>
       <div className="buttons">
-      <button className="logBtn" onClick={() => navigate("/login")}>Sign In</button>
-      <button className="registerBtn" onClick={() => navigate("/register")}>Register</button>
+      <button className="logBtn" onClick={() => navigate("/login")}>Login</button>
+      <button className="regBtn" onClick={() => navigate("/register")}>Register</button>
       </div>
+    </div>
     </div>
   );
 }

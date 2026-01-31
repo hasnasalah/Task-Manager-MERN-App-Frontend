@@ -1,0 +1,83 @@
+
+
+.error-message {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fdecea;
+  color: #b71c1c;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+}
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* only this section is centered */
+}
+.form-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 420px;
+  text-align: center;
+}
+h1 {
+  margin-bottom: 24px;
+  color: #2E6FBE;
+}
+.form-card input {
+  width: 90%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-card input:focus {
+  border-color: #2E6FBE;
+  box-shadow: 0 0 5px rgba(46,111,190,0.5);
+}
+
+/* Button */
+.loginBtn {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #2E6FBE;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #1d4e8a;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.loginBtn:hover {
+  background-color: #3b85e0;
+}
+
+.loginBtn:active {
+  box-shadow: 0 2px #1d4e8a;
+  transform: translateY(2px);
+}
+
+/* Footer text */
+.footer {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-card a {
+  color: #2E6FBE;
+  text-decoration: none;
+}
+
+.form-card a:hover {
+  text-decoration: underline;
+}

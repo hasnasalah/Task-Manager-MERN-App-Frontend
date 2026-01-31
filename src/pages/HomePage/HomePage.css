@@ -4,14 +4,12 @@
   linear-gradient(rgba(136, 191, 235, 0.321), rgba(126, 153, 194, 0.534)),url("../../assets/backgroundpic.jpg");
     background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+   align-items: center;
   height: 100vh;
   width: 100%;
-  display: flex;
-    display: flex;
-  flex-direction: column;   
-  gap: 1.5rem; 
-  justify-content: center;
-  align-items: center;
+  gap: 2.5rem; 
   color: white;
 }
 
@@ -20,46 +18,73 @@
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: rgba(50, 150, 200, 0.3); /* subtle blue/green tint */
+  background-color: rgba(50, 150, 200, 0.3);
   z-index: 1;
+   pointer-events: none; 
+}
+.buttons {
+  display: flex;
+  flex-direction: row;    
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;  
 }
 
-.background > div {
-  position: relative;
-  z-index: 2; 
-  text-align: center;
-}
-.buttons{
-    display: flex;
-    flex-direction: row;
-    gap: 1.5em;
-}
-.logBtn{
+.logBtn,
+.regBtn {  
   padding: 10px 40px;
-  background:linear-gradient(to bottom, #4CAF50,#2e7d32);
   font-size: 16px;
+  font-weight: 500;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px #2e7d32; 
+  box-shadow: 0 4px rgba(0,0,0,0.25);
   transition: all 0.2s ease;
-
+  min-width: 120px;          
+  text-align: center;        
 }
+
+
+.logBtn {
+  background: linear-gradient(to bottom, #4CAF50, #2e7d32);
+  box-shadow: 0 4px #2e7d32;
+  color: white;
+}
+
 .logBtn:hover {
-  background:linear-gradient(to bottom, #6aca6f, #27672a);
+  background: linear-gradient(to bottom, #45a049, #19541c);
+  box-shadow: 0 4px #19541c;
 }
 
-.registerBtn{
-  padding: 10px 40px;
-  background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);;
-    font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px #1d4e8a; 
-  transition: all 0.2s ease;
-}
-.registerBtn:hover {
-   background: linear-gradient(to bottom, #3b85e0, #265a9b);
+.logBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #19541c;
 }
 
+.regBtn {
+  background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);
+  box-shadow: 0 4px #1d4e8a;
+  color: white;
+}
+
+.regBtn:hover {
+  background: linear-gradient(to bottom, #3b85e0, #265a9b);
+  box-shadow: 0 4px #265a9b;
+}
+
+.regBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #265a9b;
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;  
+    gap: 1rem;
+  }
+
+  .logBtn,
+  .regBtn {
+    width: 80%;            
+  }
+}

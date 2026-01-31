@@ -3,27 +3,116 @@
   text-align: center;
 }
 
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navBar{
+display:flex;
+justify-content: space-between;
+background-color:  #2E6FBE;
+color:white;
+border-radius: 6px,6px;
+}
+.logoutBtn{
+  padding: 12px 0;
+  background-color: #5685be;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #1d4e8a;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+  background-color: #3b85e0;
+}
+.toggle{
+  padding: 12px 0;
+  background-color: #5685be;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px #1d4e8a;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+.miniNav p {
+  margin: 0;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.logoutBtn,
+.toggle {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoutBtn {
+  background-color: #e53935;
+  color: white;
+}
+
+.logoutBtn:hover {
+  background-color: #c62828;
+}
+
+.toggle {
+  background-color: #555555;
+  color: white;
+}
+
+.toggle:hover {
+  background-color: #777777;
+}
+
+/* Light theme overrides */
+.navBar.light {
+  background-color: #ffffff;
+  color: #213547;
+}
+
+.navBar.light .logoutBtn {
+  background-color: #f44336;
+  color: white;
+}
+
+.navBar.light .logoutBtn:hover {
+  background-color: #d32f2f;
+}
+
+.navBar.light .toggle {
+  background-color: #e0e0e0;
+  color: #213547;
+}
+
+.navBar.light .toggle:hover {
+  background-color: #cccccc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .miniNav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
 
-.read-the-docs {
-  color: #888;
+  .logoutBtn,
+  .toggle {
+    width: 100%;
+    justify-content: center;
+  }
 }
