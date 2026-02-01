@@ -36,10 +36,22 @@ export type User = {
   lastName: string;
   email:string;
   password?:string;
+  token?:string|undefined;
 };
 export type LoginUser={
    email:string;
   password:string;
+}
+export type modalClose={
+  onClose:()=>void;
+}
+export type ProjectListPropps={
+  projects:Project[];
+}
+export type ProjectItemProps={
+name:string;
+description:string;
+dueDate:Date;
 }
 export type CreateNoteData = {
   title: string;

@@ -97,6 +97,24 @@ gap:1rem;
 .navBar.light .toggle:hover {
   background-color: #cccccc;
 }
+.project-card {
+  background: var(--card-bg);
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.projectBtn {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.due-date {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 
 /* Responsive */
 @media (max-width: 600px) {
