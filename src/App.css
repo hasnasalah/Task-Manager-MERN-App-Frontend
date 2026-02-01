@@ -10,6 +10,9 @@ background-color:  #2E6FBE;
 color:white;
 border-radius: 6px,6px;
 }
+.navBar h1{
+  color:white;
+}
 .logoutBtn{
   padding: 12px 0;
   background-color: #5685be;
@@ -35,6 +38,12 @@ border-radius: 6px,6px;
   transition: all 0.2s ease;
   margin-top: 10px;
 }
+.miniNav{ 
+  display:flex;
+  justify-content: center;
+  align-items: center;
+gap:1rem;
+}
 .miniNav p {
   margin: 0;
   font-weight: 500;
@@ -53,23 +62,17 @@ border-radius: 6px,6px;
   gap: 0.5rem;
 }
 
-.logoutBtn {
-  background-color: #e53935;
+.logoutBtn, .toggle{
+ background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);
+  box-shadow: 0 4px #1d4e8a;
   color: white;
 }
 
-.logoutBtn:hover {
-  background-color: #c62828;
+.logoutBtn:hover,  .toggle:hover{
+   background: linear-gradient(to bottom, #3b85e0, #265a9b);
+  box-shadow: 0 4px #265a9b;
 }
 
-.toggle {
-  background-color: #555555;
-  color: white;
-}
-
-.toggle:hover {
-  background-color: #777777;
-}
 
 /* Light theme overrides */
 .navBar.light {

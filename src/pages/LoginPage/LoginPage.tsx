@@ -34,7 +34,6 @@ const navigate=useNavigate();
   try {
     const data=await loginUser(formData);
     login(data);
-   localStorage.setItem("auth",data);
      navigate("/projects");
   } catch (err: unknown) {
     if (err instanceof Error) {

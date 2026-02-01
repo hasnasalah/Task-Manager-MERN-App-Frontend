@@ -1,34 +1,35 @@
-import { createContext, useState } from "react";
-import type {AuthProviderProps,AuthContextType,User} from "../types/index";
-
-
+import { createContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import type { AuthProviderProps, AuthContextType, User } from "../types/index";
 
 const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  user:null,
+  user: null,
   login: () => {},
   logout: () => {},
 });
 
-
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const storedAuth = localStorage.getItem("auth");
-  const [isAuthenticated, setIsAuthenticated] = useState(!!storedAuth);
-const [user, setUser] = useState<User | null>(null);
+  // useLocalStorage automatically reads and writes JSON
+  const [auth, setAuth] = useLocalStorage<{ user: User; token: string } | null>("auth", null);
 
   const login = (data: { user: User; token: string }) => {
-    setIsAuthenticated(true);
-    setUser(data.user);
+    setAuth(data); // store user + token in localStorage
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
-     localStorage.removeItem("auth");
-     setUser(null);
+    setAuth(null); // remove from localStorage
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout,user }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated: !!auth,
+        user: auth?.user || null,
+        login,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
