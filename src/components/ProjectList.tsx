@@ -1,12 +1,17 @@
-import type { ProjectListPropps } from "../types";
 import ProjectCard from "./ProjectCard";
+import ProjectsContext from "../context/ProjectsContext";
+import "../App.css"
+import { useContext } from "react";
 
 
-export default function ProjectList({projects}:ProjectListPropps) {
+export default function ProjectList() {
+  const context=useContext(ProjectsContext);
+   if (!context) return null;
+     const { projects } = context;
   return (
-    <div>
+    <div className="project-list">
       {projects.map(project => (
-        <ProjectCard key={project._id} name={project.name} description={project.description} dueDate={project.dueDate} />
+        <ProjectCard key={project._id}   project={project}/>
       ))}
     </div>
   );

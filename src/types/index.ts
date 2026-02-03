@@ -14,22 +14,18 @@ export interface AuthProviderProps {
 export interface AuthContextType {
   isAuthenticated: boolean;
   user:User|null;
+  token:string|null;
   login: (data:{user:User,token:string}) => void;
   logout: () => void;
 }
 export type ProtectedRouteProps = {
   children: React.ReactNode;
 };
-export type Task = {
-  _id: string;
-  title: string;
-  body: string;
-};
 export type Project = {
   _id: string;
   name: string;
   description: string;
-  dueDate: Date;
+  DueDate: Date;
 };
 export type User = {
   firstName: string;
@@ -42,20 +38,42 @@ export type LoginUser={
    email:string;
   password:string;
 }
+
+export type ProjectListPropps = {
+  projects: Project[];
+  setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
+};
+export type ProjectItemProps={
+project:Project;
+}
+export type ProjectCardContainerProps = {
+  project: Project;
+  projects: Project[];
+  setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
+};
+export type ProjectFormData = {
+  name: string;
+  description: string;
+  DueDate: Date; 
+};
 export type modalClose={
   onClose:()=>void;
+    projectToEdit?: Project; 
 }
-export type ProjectListPropps={
+export type createProjectData={
   projects:Project[];
+  setProjects:React.Dispatch<React.SetStateAction<Project[]>>;
 }
-export type ProjectItemProps={
-name:string;
+export type Task={
+  _id:string;
+title:string;
 description:string;
-dueDate:Date;
+status: ["todo","in-progress","done"];
+priority:["Low","Medium","High"];
 }
-export type CreateNoteData = {
-  title: string;
-  description: string;
-  status:["To Do","In Progress","Done"];
-  priority:["Low","Medium","High"];
-};
+export type tasksFormData={
+  title:string;
+description:string;
+status: "todo"|"in-progress"|"done";
+priority:"Low"|"Medium"|"High";
+}

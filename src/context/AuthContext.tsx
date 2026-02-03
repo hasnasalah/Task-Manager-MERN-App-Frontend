@@ -5,15 +5,17 @@ import type { AuthProviderProps, AuthContextType, User } from "../types/index";
 const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
   user: null,
+  token:null,
   login: () => {},
   logout: () => {},
 });
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   // useLocalStorage automatically reads and writes JSON
-  const [auth, setAuth] = useLocalStorage<{ user: User; token: string } | null>("auth", null);
+  const [auth, setAuth] = useLocalStorage<{ user: User;  token: string; } | null>("auth", null);
 
   const login = (data: { user: User; token: string }) => {
+    
     setAuth(data); // store user + token in localStorage
   };
 
@@ -26,6 +28,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       value={{
         isAuthenticated: !!auth,
         user: auth?.user || null,
+        token:auth?.token||null,
         login,
         logout,
       }}
