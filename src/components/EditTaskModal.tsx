@@ -1,26 +1,26 @@
- import type { modalClose,ProjectFormData,Project } from "../types";
- import { useState,useContext } from "react";
-import type {ChangeEvent,FormEvent}from 'react';
-import { createProject,updateProject } from "../utilities/ProjectApi";
+import type { AddTaskModalProps, Task, tasksFormData } from "../types";
+import { useState, useContext } from "react";
+import type { ChangeEvent, FormEvent } from "react";
+import { createTask } from "../utilities/TasksApi";
 import AuthContext from "../context/AuthContext";
-import ProjectsContext from "../context/ProjectsContext";
+import TasksContext from "../context/TaskContext";
 
 
-
-export default function EditModal({ onClose, projectToEdit }: modalClose) {
-  const [formData, setFormData] = useState<ProjectFormData>({
-    name: projectToEdit?.name || "",
-    description: projectToEdit?.description || "",
-    DueDate: projectToEdit ? new Date(projectToEdit.DueDate) : new Date(),
+export default function AddTaskModal({ onClose, projectId }: AddTaskModalProps) {
+  const [formData, setFormData] = useState<tasksFormData>({
+    title: "",
+    description: "",
+    status: "todo",
+    priority: "Low",
   });
 
   const { token } = useContext(AuthContext);
-  const projectsContext = useContext(ProjectsContext);
+  const tasksContext = useContext(TasksContext);
 
-  if (!projectsContext) return <p>Loading...</p>;
-  const { projects, setProjects } = projectsContext;
+  if (!tasksContext) return <p>Loading...</p>;
+  const { tasks, setTasks } = tasksContext;
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = event.target;
     setFormData(prev => ({
       ...prev,
@@ -38,42 +38,27 @@ export default function EditModal({ onClose, projectToEdit }: modalClose) {
     if (!token) return;
 
     try {
-       if (projectToEdit) {
-      const data = await updateProject(projectToEdit._id, formData, token);
-
-      const updatedProject: Project = {
-         ...projectToEdit, 
-        ...formData,
-        DueDate: data.DueDate ? new Date(data.DueDate) : projectToEdit.DueDate,
-        _id: projectToEdit._id,
-      };
-
-      setProjects(prev =>
-        prev.map(p => (p._id === projectToEdit._id ? updatedProject : p))
-      );
-      } else {
-        const data: Project = await createProject(formData, token);
-        setProjects(prev => [...prev, data]);
-      }
+      const newTask: Task = await createTask(formData,projectId , token);
+      setTasks(prev => [...prev, newTask]);
       onClose();
     } catch (error) {
       console.error(error);
     }
   }
 
-
   return (
-    <div className="project-modal-overlay">
-      <div className="project-modal">
+    <div className="task-modal-overlay">
+      <div className="task-modal">
         <div className="modal">
-          <h2>{projectToEdit ? "Edit Project" : "Add New Project"}</h2>
+          <h2>Add New Task</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Project name"
-              name="name"
-              value={formData.name}
+              placeholder="Task title"
+              name="title"
+              value={formData.title}
               onChange={handleChange}
+              required
             />
             <textarea
               name="description"
@@ -81,14 +66,18 @@ export default function EditModal({ onClose, projectToEdit }: modalClose) {
               value={formData.description}
               onChange={handleChangeText}
             />
-            <input
-              type="date"
-              name="DueDate"
-              value={(formData.DueDate.toISOString().split("T")[0])}
-              onChange={handleChange}
-            />
+            <select name="status" value={formData.status} onChange={handleChange}>
+              <option value="todo">To Do</option>
+              <option value="in-progress">In Progress</option>
+              <option value="done">Done</option>
+            </select>
+            <select name="priority" value={formData.priority} onChange={handleChange}>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
             <div className="modal-actions">
-              <button type="submit">Save</button>
+              <button type="submit">Add Task</button>
               <button type="button" onClick={onClose}>
                 Cancel
               </button>

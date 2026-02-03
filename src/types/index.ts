@@ -68,8 +68,8 @@ export type Task={
   _id:string;
 title:string;
 description:string;
-status: ["todo","in-progress","done"];
-priority:["Low","Medium","High"];
+status: "todo"|"in-progress"|"done";
+priority:"Low"|"Medium"|"High";
 }
 export type tasksFormData={
   title:string;
@@ -77,3 +77,16 @@ description:string;
 status: "todo"|"in-progress"|"done";
 priority:"Low"|"Medium"|"High";
 }
+export type Filters = {
+  priority: "All" | "High" | "Medium" | "Low";
+};
+
+export type TaskFiltersProps = {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+};
+export 
+type AddTaskModalProps = {
+  onClose: () => void;
+  projectId: string; 
+};
