@@ -1,4 +1,4 @@
-  import NavBar from "../../components/NavBar";
+ import NavBar from "../../components/NavBar";
   import ProjectList from "../../components/ProjectList";
   import { getProjects } from "../../utilities/ProjectApi";
   import AuthContext from "../../context/AuthContext";
