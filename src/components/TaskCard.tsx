@@ -28,7 +28,6 @@ export default function ProjectCard({ task }: { task: Task}) {
         t._id === task._id ? { ...t, [field]: value } : t
       )
     );
-
     try {
       await updateTask(task._id, { [field]: value }, token);
     } catch (err) {

@@ -1,22 +1,24 @@
 import type { TaskFiltersProps,Filters  } from "../types";
+import "../App.css";
 
 
 
-export default function TaskFilters({ filters, setFilters }: TaskFiltersProps) {
-  return (
-    <div className="task-filters">
-      <select
-        value={filters.priority}
-        onChange={e =>
-          setFilters(prev => ({ ...prev, priority: e.target.value as Filters["priority"] }))
-        }
-      >
-        <option value="All">All Priorities</option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-
+export default function TaskFilters({setFilters, filters }: TaskFiltersProps) {
+   return (
+    <div className="filter-select">
+    <select
+     value={filters.priority}
+        onChange={(e) =>
+          setFilters((prev) => ({
+            ...prev,
+            priority: e.target.value as Filters["priority"],
+          }))}
+    >
+      <option value="All">All</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
     </div>
   );
 }

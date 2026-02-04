@@ -6,10 +6,13 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import DashboardPage from './pages/Dashboard/DashboardPage';
 import TaskDetailPage from './pages/TaskDetailPage/TaskDetailPage';
 import ProtectedRoute from "./components/ProtectedRoute"; 
+import ThemeContext from './context/ThemeContext';
+import { useContext } from 'react';
 function App() {
-
+ const {theme,toggleTheme}=useContext(ThemeContext)!;
   return (
     <>
+     <div className={`app-container ${theme}`}>
     <Router>
      <Routes>
   <Route path="/" element={<HomePage/>}/>
@@ -19,12 +22,13 @@ function App() {
    <Route path="/projects" element={<ProtectedRoute>
     <DashboardPage />
   </ProtectedRoute>}/>
-  <Route path="/projects/:id" element={
+  <Route path="/projects/:projectId" element={
   <ProtectedRoute>
     <TaskDetailPage />
   </ProtectedRoute>}/>
 </Routes>
 </Router>
+</div>
     </>
   )
 }

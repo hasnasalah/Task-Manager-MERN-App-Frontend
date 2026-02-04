@@ -6,7 +6,7 @@ const TasksContext = createContext<{
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 } | null>(null);
 
-export function ProjectsProvider({ children }: { children: React.ReactNode }) {
+export function TasksProvider({ children }: { children: React.ReactNode }) {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   return (

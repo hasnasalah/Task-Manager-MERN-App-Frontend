@@ -19,7 +19,7 @@ const handeleLogout=()=>{
 return(
 
 <>
-<div className="navBar">
+<div className={`navBar ${theme}`}>
 <h1>Project Manager</h1>
 <div className="miniNav">
 {user&&

@@ -21,18 +21,19 @@ export default function ProjectCard({ project }: { project: Project }) {
   }
 
   return (
+    <div className="project-card">
       <Link 
         to={`/projects/${project._id}`} 
         state={{ project }} 
         style={{ textDecoration: "none", color: "inherit" }}
       >
-    <div className="project-card">
+    
       <h2>{project.name}</h2>
       <p>{project.description}</p>
       <p className="due-date">
         Due: {project.DueDate ? new Date(project.DueDate).toLocaleDateString() : "—"}
       </p>
-
+   </Link>
       <div className="projectBtn">
         <button onClick={() => setIsModalOpen(true)} className="project-editBtn">
           Edit
@@ -50,6 +51,6 @@ export default function ProjectCard({ project }: { project: Project }) {
         </button>
       </div>
     </div>
-    </Link>
+    
   );
 }

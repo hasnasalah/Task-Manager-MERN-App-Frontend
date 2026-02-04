@@ -77,9 +77,7 @@ description:string;
 status: "todo"|"in-progress"|"done";
 priority:"Low"|"Medium"|"High";
 }
-export type Filters = {
-  priority: "All" | "High" | "Medium" | "Low";
-};
+
 
 export type TaskFiltersProps = {
   filters: Filters;
@@ -90,3 +88,10 @@ type AddTaskModalProps = {
   onClose: () => void;
   projectId: string; 
 };
+export type Filters = {
+  priority: "All" | "High" | "Medium" | "Low";
+};
+export type taskListProps={
+  filters:Filters;
+  
+}

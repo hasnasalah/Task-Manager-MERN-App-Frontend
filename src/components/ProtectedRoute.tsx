@@ -7,7 +7,7 @@ import type { ProtectedRouteProps } from "../types";
 export default function ProtectedRoute ({children }: ProtectedRouteProps){
    const {isAuthenticated}=useContext(AuthoContex);
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;

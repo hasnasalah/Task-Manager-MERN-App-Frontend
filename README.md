@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# Project Dashboard & Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a **Task Management and Project Dashboard** application built with **React** , **TypeScript** and **node JS**. It allows users to **register, log in, and manage their projects and tasks** efficiently. Users can organize projects, add tasks, filter and prioritize them, and view task statistics—all with **light and dark mode support**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app has clean UI, and user-friendly interactions.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Features
 
-## Expanding the ESLint configuration
+### Authentication
+- **User Registration:** Create an account with email and password
+- **User Login:** Secure login to access your projects
+- **Token-based Authentication:** Protects your data per user
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Project Management
+- Create, edit, and delete projects
+- View all projects in a dashboard
+- Responsive card layout for projects
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Task Management
+- Add, edit, and delete tasks within projects
+- Set task priorities and statuses
+- Filter tasks by priority
+- View tasks in a responsive card layout
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Dashboard & Statistics
+- Task statistics cards (Total, Completed, Pending, High Priority)
+- Light/Dark mode support
+- Fully responsive design for desktop and mobile
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### User Interface
+- Clean, modern design with CSS variables for themes
+- Hover effects and button feedback
+- No-task placeholder with centered message
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend:** React, TypeScript, CSS
+- **State Management:** React Context API
+- **Routing:** React Router
+- **API Calls:** Custom API with Fetch
+- **Other:** Responsive design, Dark/Light theme toggle
+
+---
+## Environment Variables
+
+This project requires the environment variables to run:
+
+- `VITE_API_URL` – URL of the backend API
+
+## Setup
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/hasnasalah/Task-Manager-MERN-App-Frontend

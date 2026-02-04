@@ -2,7 +2,70 @@
   margin: 0 auto;
   text-align: center;
 }
+/* light mode variables*/
+:root {
+  --bg-main: #f9fafb;
+  --bg-surface: #ffffff;
+  --bg-surface-soft: #f3f4f6;
+  --border-color: #e5e7eb;
 
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  --card-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+body.dark {
+  --bg-main: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-surface-soft: #273449;
+  --border-color: #334155;
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --card-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+.app-container.dark {
+  --bg-main: #121212;
+  --text-main: #eee;
+  --card-bg: #1e1e1e;
+  --text-muted: #aaa;
+  --bg-surface: #1a1a1a;
+  --bg-surface-soft: #2a2a2a;
+}
+/* Light mode defaults, no change needed */
+body, .app-container.light {
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+/* Dark mode */
+.app-container.dark {
+  background-color: #121212; /* dark main background */
+  color: #eee; /* text color */
+}
+
+/* Cards */
+.app-container.dark .project-card,
+.app-container.dark .task-card,
+.app-container.dark .stat-card {
+  background-color: #1e1e1e; /* dark card background */
+  color: #eee;
+  border: 1px solid #333;
+}
+.app-container.dark .projectBtn {
+  background-color: #2a2a2a; /* dark gray for dark mode */
+  border-top: solid 2px #444; /* optional: darker border */
+}
+
+/* Dashed box for no tasks */
+.app-container.dark .no-tasks-message {
+  background-color: #1a1a1a;
+  color: #aaa;
+  border: 2px dashed #444;
+}
+
+/*navBar styling*/
 .navBar{
 display:flex;
 justify-content: space-between;
@@ -75,10 +138,7 @@ gap:1rem;
 
 
 /* Light theme overrides */
-.navBar.light {
-  background-color: #ffffff;
-  color: #213547;
-}
+
 
 .navBar.light .logoutBtn {
   background-color: #f44336;
@@ -97,11 +157,13 @@ gap:1rem;
 .navBar.light .toggle:hover {
   background-color: #cccccc;
 }
+/*dashboard styling*/
 .project-card {
   background: var(--card-bg);
   padding: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+   background-color: white
 }
 
 .projectBtn {
@@ -114,11 +176,6 @@ gap:1rem;
   font-size: 0.9rem;
   opacity: 0.8;
 }
-.project-card{
-  padding: 20px;
-  border-radius: 6px;
-  background-color: white
-}
 .projectBtn{
   border-top:solid 2px #f0eeee;
   background-color: #f0eeee;
@@ -130,7 +187,6 @@ gap:1rem;
   padding: 30px;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: ;
 }
 .project-editBtn{
   background: linear-gradient(to bottom, #4CAF50, #2e7d32);
@@ -175,27 +231,42 @@ gap:1rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
-
-.project-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.left-side{
+.sub-left-side {
   display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 10px; 
+  margin-left:10px;
+  margin-right: 10px;
+   align-items: flex-start;
+}
+.Left-side {
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;            
-  margin: 1.5rem;       
-  width: 100%;   
-  gap:20px;            
+  
+}
+.EditProject-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #4CAF50, #2e7d32);
+  box-shadow: 0 4px #2e7d32;
+  color: white;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
 }
 
-.left-side h1 {
-  margin: 0;
-  font-size: 2rem;
+.EditProject-btn:hover {
+  background: linear-gradient(to bottom, #45a049, #19541c);
+  box-shadow: 0 4px #19541c;
+  transform: translateY(-2px);
 }
-.left-side button {
+
+/*TaskBoard styling*/
+.Add-task-btn {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 16px;
@@ -212,21 +283,100 @@ gap:1rem;
     background: linear-gradient(to bottom, #45a049, #19541c);
   box-shadow: 0 4px #19541c;
 }
+
+.no-tasks-message {
+  width: 90%;                 
+  max-width: 600px;             
+  margin: 20px auto;            
+  display: flex;
+  justify-content: center;     
+  align-items: center;          
+  text-align: center;
+  padding: 30px 20px;          
+  border-radius: 8px;
+  border: 2px dashed #ccc;      
+  background-color: var(--bg-surface-soft); 
+  color: var(--text-muted);      
+  font-size: 1.1rem;
+  flex-direction: column;       
+}
+
+.back-btn {
+  background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-right: 15px; 
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  padding: 8px 30px;
+  border-radius: 8px;
+  margin-top:15px;
+}
+
+.back-btn:hover {
+  color: #007bff; 
+  text-decoration: underline;
+}
 /*task card*/
 .task-card {
+  margin:1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-
   padding: 1rem 1.25rem;
-  background-color: #1e1e1e;
+  background-color: #ebebeb;
   border-radius: 12px;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #ede8e8;
 
-  color: #f5f5f5;
+  color: #000000;
+}
+.filter-select {
+  margin: 1rem 0;
 }
 
+/* Dropdown */
+.filter-select select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #4CAF50, #2e7d32);
+  box-shadow: 0 4px #2e7d32;
+  color: white;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Hover effect */
+.filter-select select:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px #2e7d32;
+}
+
+.task-card .task-deleteBtn,
+.task-card .filter-btn {
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Delete Button */
+.task-card .task-deleteBtn {
+   background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);
+  box-shadow: 0 4px #1d4e8a;
+}
+
+.task-card .task-deleteBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px #1d4e8a;
+}
 /* Left side: title + description */
 .title-side{
   display: flex;
@@ -243,14 +393,14 @@ gap:1rem;
 
 .title-side p {
   font-size: 0.875rem;
-  color: #b5b5b5;
+  color: #8f8b8b;
   margin: 0;
 }
 
 /* Right side: status, priority, delete */
 .status-side {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
 }
 
@@ -292,39 +442,119 @@ gap:1rem;
   background: linear-gradient(to bottom, #4CAF50, #2e7d32);
   box-shadow: 0 3px #2e7d32;
 }
-.priority-low {
+.priority-Low {
   background: linear-gradient(to bottom, #bdbdbd, #9e9e9e);
   box-shadow: 0 3px #757575;
 }
 
 /* medium */
-.priority-medium {
+.priority-Medium {
   background: linear-gradient(to bottom, #ffb74d, #f57c00);
   box-shadow: 0 3px #ef6c00;
 }
 
 /* high */
-.priority-high {
+.priority-High {
   background: linear-gradient(to bottom, #ef5350, #c62828);
   box-shadow: 0 3px #b71c1c;
 }
+.task-stats-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1 1 150px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin:0.25rem;
+}
+
+.stat-card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.stat-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* Add theme colors for each type */
+.stat-card.total {
+  background: linear-gradient(to bottom, #4CAF50, #2e7d32);
+  color: white;
+}
+
+.stat-card.completed {
+  background: linear-gradient(to bottom, #2E6FBE, #1d4e8a);
+  color: white;
+}
+
+.stat-card.pending {
+  background: #f0ad4e; /* orange-ish */
+  color: white;
+}
+
+.stat-card.high-priority {
+  background: #d9534f; /* red */
+  color: white;
+}
+
+/* Hover effect */
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+/* Small screen tweaks for task cards */
+@media (max-width: 900px) {
+  .task-card {
+    flex-direction: column;        /* stack content vertically */
+    align-items: flex-start;       /* left-align text */
+    gap: 0.5rem;                   /* smaller gaps */
+    padding: 0.8rem 1rem;          /* reduce padding */
+  }
+
+  .status-side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .title-side h2 {
+    font-size: 0.95rem;
+  }
+
+  .title-side p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small screens */
 @media (max-width: 600px) {
-  .navBar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+  .task-card {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
   }
 
-  .miniNav {
+  .status-side {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    width: 100%;
+    gap: 0.3rem;
   }
 
-  .logoutBtn,
-  .toggle {
-    width: 100%;
-    justify-content: center;
+  .title-side h2 {
+    font-size: 0.9rem;
+  }
+
+  .title-side p {
+    font-size: 0.8rem;
   }
 }

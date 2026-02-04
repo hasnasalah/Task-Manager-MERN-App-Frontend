@@ -34,19 +34,31 @@
   <div className="board">
     <div className="left-side">
   <h1>Your Projects</h1>
-  <div> 
-        <button onClick={() => setIsModalOpen(true)} className="EditProject-btn">+ Add New Project</button>
-        {isModalOpen && (
-          <EditModal onClose={() => setIsModalOpen(false)} />
-        )}
-    </div>
-    </div>
-  <ProjectList />
+     {projects.length === 0 ? (
+            <div className="no-projects-message">
+              <p>You don't have any projects yet. Click below to add your first project!</p>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="EditProject-btn"
+              >
+                + Add New Project
+              </button>
+            </div>
+          ) : (
+            <div className="project-list-wrapper">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="EditProject-btn"
+              >
+                + Add New Project
+              </button>
+              <ProjectList />
+            </div>
+          )}
 
-
-
-
-  </div>
+          {isModalOpen && <EditModal onClose={() => setIsModalOpen(false)} />}
+        </div>
+      </div>
 
   </>
 

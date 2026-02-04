@@ -4,6 +4,8 @@ import type { ChangeEvent, FormEvent } from "react";
 import { createTask } from "../utilities/TasksApi";
 import AuthContext from "../context/AuthContext";
 import TasksContext from "../context/TaskContext";
+import "../App.css";
+import "../pages/TaskDetailPage/TaskDetailPage.css"
 
 
 export default function AddTaskModal({ onClose, projectId }: AddTaskModalProps) {
