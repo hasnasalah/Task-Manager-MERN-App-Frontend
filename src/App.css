@@ -164,7 +164,8 @@ gap:1rem;
   padding: 1.2rem;
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-   background-color: white
+   background-color: white;
+   flex-wrap: wrap;
 }
 
 .projectBtn {
@@ -231,6 +232,7 @@ gap:1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
+  
 }
 .sub-left-side {
   display: flex;
@@ -537,6 +539,7 @@ gap:1rem;
   .title-side p {
     font-size: 0.85rem;
   }
+ 
 }
 
 /* Extra small screens */
@@ -544,6 +547,31 @@ gap:1rem;
   .task-card {
     width: 100%;
     padding: 0.6rem 0.8rem;
+  }
+   .project-list {
+    grid-template-columns: 1fr; /* single column cards */
+    padding: 0 0.5rem;          /* avoid touching edges */
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+  .navBar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 10px;
+  }
+
+  .miniNav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .EditProject-btn,
+  .project-editBtn,
+  .project-deleteBtn {
+    width: 100%; /* full width buttons on mobile */
   }
 
   .status-side {
