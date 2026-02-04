@@ -5,7 +5,7 @@ import { createTask } from "../utilities/TasksApi";
 import AuthContext from "../context/AuthContext";
 import TasksContext from "../context/TaskContext";
 import "../App.css";
-import "../pages/TaskDetailPage/TaskDetailPage.css"
+import "../pages/TaskDetailPage/taskDetailPage.css"
 
 
 export default function AddTaskModal({ onClose, projectId }: AddTaskModalProps) {
