@@ -12,7 +12,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const projectsContext = useContext(ProjectsContext);
 
   if (!projectsContext) return <p>Loading...</p>;
-  const { projects, setProjects } = projectsContext;
+  const { setProjects } = projectsContext;
 
   async function handleDelete(){
     if (!token) return;

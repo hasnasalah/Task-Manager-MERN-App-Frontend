@@ -18,7 +18,7 @@ export default function EditModal({ onClose, projectToEdit }: modalClose) {
   const projectsContext = useContext(ProjectsContext);
 
   if (!projectsContext) return <p>Loading...</p>;
-  const { projects, setProjects } = projectsContext;
+  const {setProjects } = projectsContext;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;

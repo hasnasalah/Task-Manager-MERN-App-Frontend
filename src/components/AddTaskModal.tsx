@@ -20,7 +20,7 @@ export default function AddTaskModal({ onClose, projectId }: AddTaskModalProps) 
   const tasksContext = useContext(TasksContext);
 
   if (!tasksContext) return <p>Loading...</p>;
-  const { tasks, setTasks } = tasksContext;
+  const { setTasks } = tasksContext;
 
   function handleChange(event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = event.target;

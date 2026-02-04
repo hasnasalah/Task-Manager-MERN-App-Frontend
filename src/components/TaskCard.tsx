@@ -10,7 +10,7 @@ export default function ProjectCard({ task }: { task: Task}) {
   const tasksContext = useContext(TasksContext);
  
   if (!tasksContext) return <p>Loading...</p>;
-  const { tasks, setTasks } = tasksContext;
+  const {setTasks } = tasksContext;
 
  async function handleDelete(){
     if (!token) return;

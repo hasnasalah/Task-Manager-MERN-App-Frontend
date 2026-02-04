@@ -110,6 +110,7 @@ gap:1rem;
 .miniNav p {
   margin: 0;
   font-weight: 500;
+  padding-top:10px ;
 }
 
 .logoutBtn,
