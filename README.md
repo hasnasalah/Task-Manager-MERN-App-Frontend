@@ -50,6 +50,7 @@ The app has clean UI, and user-friendly interactions.
 ## Environment Variables
 
 This project requires the environment variables to run:
+- create 
 
 - `VITE_API_URL` – URL of the backend API
 
@@ -59,3 +60,16 @@ This project requires the environment variables to run:
 
 ```bash
 git clone https://github.com/hasnasalah/Task-Manager-MERN-App-Frontend
+```
+
+## Depoyed URLs
+
+for frontend: 
+https://task-manager-mern-app-frontend.onrender.com
+
+for backend:
+https://task-manager-mern-backend-v8k5.onrender.com
+
+
+## Backend Github Repositry
+https://github.com/hasnasalah/Task-Manager-MERN-backend

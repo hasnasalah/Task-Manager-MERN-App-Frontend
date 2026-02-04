@@ -4,7 +4,7 @@ import type {ChangeEvent, FormEvent} from 'react';
 import type {LoginUser} from "../../types/index";
 import "./loginPage.css";
 import AuthContext from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 
 
@@ -71,7 +71,7 @@ return(
 <button className="loginBtn" type="submit">Login</button>
 </form>
 
-<div className="footer">Don't have an account? <a href="/register">Register</a></div>
+<div className="footer">Don't have an account? <Link to="/register">Register</Link></div>
 </div>
 
 

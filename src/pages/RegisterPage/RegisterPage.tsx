@@ -2,6 +2,7 @@
 import registerUser from "../../utilities/UsersApi";
 import type {ChangeEvent, FormEvent} from 'react';
 import type {User} from "../../types/index";
+import { Link } from "react-router-dom";
 import "./RegisterPage.css"
 
 
@@ -81,7 +82,7 @@ return(
 <button className="registerBtn">Register</button>
 </form>
 
-<div className="footer">Already have and account? <a href="/login">Login</a></div>
+<div className="footer">Already have and account? <Link to="/login">Login</Link></div>
 </div>
 
 </div>
